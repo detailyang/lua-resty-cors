@@ -1,7 +1,7 @@
 -- @Author: detailyang
 -- @Date:   2016-10-10 15:45:33
 -- @Last Modified by:   detailyang
--- @Last Modified time: 2016-10-10 20:25:45
+-- @Last Modified time: 2016-10-10 21:20:01
 
 -- https://www.w3.org/TR/cors/
 
@@ -23,8 +23,8 @@ local allow_hosts = {}
 local allow_headers = {}
 local allow_methods = {}
 local expose_headers = {}
-local age = 3600
-local credentials = true
+local max_age = 3600
+local allow_credentials = true
 
 local function join(delimiter, list)
     if delimiter == nil or type(delimiter) ~= 'string' then
@@ -62,11 +62,11 @@ function _M.expose_header(header)
 end
 
 function _M.max_age(age)
-    age = age
+    max_age = age
 end
 
 function _M.allow_credentials(credentials)
-    credentials = credentials
+    allow_credentials = credentials
 end
 
 function _M.run()
@@ -90,7 +90,7 @@ function _M.run()
     end
 
     ngx.header[AccessControlAllowOrigin] = origin
-    ngx.header[AccessControlMaxAge] = age
+    ngx.header[AccessControlMaxAge] = max_age
 
     if #expose_headers >= 0 then
         ngx.header[AccessControlExposeHeaders] = join(',', expose_headers)
@@ -104,7 +104,7 @@ function _M.run()
         ngx.header[AccessControlAllowMethods] = join(',', allow_methods)
     end
 
-    if credentials == true then
+    if allow_credentials == true then
         ngx.header[AccessControlAllowCredentials] = "true"
     else
         ngx.header[AccessControlAllowCredentials] = "false"
