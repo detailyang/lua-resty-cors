@@ -39,5 +39,3 @@ luac.out
 *.x86_64
 *.hex
 
-t/servroot
-resty_modules
