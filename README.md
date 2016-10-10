@@ -1,4 +1,4 @@
-name
+Name
 ====
 lua-resty-cors
 
@@ -19,6 +19,8 @@ Table of Contents
 
 Status
 ====
+![lua-resty-cors](https://travis-ci.org/detailyang/lua-resty-cors.svg?branch=master)
+
 Experimental
 
 Usage
