@@ -1,4 +1,4 @@
-name
+Name
 ====
 lua-resty-cors
 
@@ -19,7 +19,7 @@ Table of Contents
 
 Status
 ====
-Experimental[![Build Status](https://travis-ci.org/detailyang/lua-resty-cors.svg?branch=master)](https://travis-ci.org/detailyang/lua-resty-cors)
+[![Build Status](https://travis-ci.org/detailyang/lua-resty-cors.svg?branch=master)](https://travis-ci.org/detailyang/lua-resty-cors)
 
 Usage
 ====
