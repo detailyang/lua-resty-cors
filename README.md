@@ -19,7 +19,7 @@ Table of Contents
 
 Status
 ====
-Experimental
+Experimental[![Build Status](https://travis-ci.org/detailyang/lua-resty-cors.svg?branch=master)](https://travis-ci.org/detailyang/lua-resty-cors)
 
 Usage
 ====
