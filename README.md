@@ -25,7 +25,7 @@ Usage
 ====
 It shoule be placed on the nginx output header phase. In OpenResty it should be header_filter_by_lua\*. The config shoule be like as the following:
 
-````bash
+```bash
 
 http {
       header_filter_by_lua_block {
@@ -47,7 +47,7 @@ http {
         cors.run()
     }
 }
-````
+```
 
 API
 ====
@@ -58,13 +58,13 @@ allow_host
 
 This will match the host from cors request then be added to the header Access-Control-Allow-Origin like as the following:
 
-````bash
+```bash
 Request:
 Origin: https://www.google.com
 
 Response:
 Access-Control-Allow-Origin: http://www.google.com
-````
+```
 
 expose_header
 ---
@@ -72,13 +72,13 @@ expose_header
 
 This will be added to the header Access-Control-Expose-Headers like as the following:
 
-````bash
+```bash
 Request:
 Origin: https://www.google.com
 
 Response:
 Access-Control-Expose-Headers: x-custom-field1,x-custom-field2
-````
+```
 
 allow_method
 ---
@@ -86,13 +86,13 @@ allow_method
 
 This will be added to the header Access-Control-Allow-Methods like as the following:
 
-````bash
+```bash
 Request:
 Origin: https://www.google.com
 
 Response:
 Access-Control-Allow-Methods:GET,POST,PUT
-````
+```
 
 allow_header
 ---
@@ -100,13 +100,13 @@ allow_header
 
 This will be added to the header Access-Control-Allow-Headers like as the following:
 
-````bash
+```bash
 Request:
 Origin: https://www.google.com
 
 Response:
 Access-Control-Allow-Headers:x-custom-field1,x-custom-field2
-````
+```
 
 max_age
 ---
@@ -114,13 +114,13 @@ max_age
 
 This will be added to the header Access-Control-Max-Age like as the following:
 
-````bash
+```bash
 Request:
 Origin: https://www.google.com
 
 Response:
 Access-Control-Max-Age: 7200
-````
+```
 
 Allow-Credentials
 ---
@@ -128,13 +128,13 @@ Allow-Credentials
 
 This will be added to the header Access-Control-Allow-Credentials like as the following:
 
-````bash
+```bash
 Request:
 Origin: https://www.google.com
 
 Response:
 Access-Control-Allow-Credentials: true
-````
+```
 
 run
 ---
