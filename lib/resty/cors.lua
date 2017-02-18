@@ -77,9 +77,7 @@ function _M.run()
 
     local matched = false
     for k, v in pairs(allow_hosts) do
-        ngx.log(ngx.ERR, "host ", v, 'origin', origin)
         local from, to, err = ngx.re.find(origin, v, "jo")
-        ngx.log(ngx.ERR, 'from', from)
         if from then
             matched = true
         end
