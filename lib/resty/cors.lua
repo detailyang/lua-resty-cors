@@ -1,7 +1,7 @@
 -- @Author: detailyang
 -- @Date:   2016-10-10 15:45:33
 -- @Last Modified by:   detailyang
--- @Last Modified time: 2016-10-10 21:20:01
+-- @Last Modified time: 2017-02-19 13:29:41
 
 -- https://www.w3.org/TR/cors/
 
@@ -27,24 +27,6 @@ local max_age = 3600
 local allow_credentials = true
 local join = table.concat
 
-local function join(delimiter, list)
-    if delimiter == nil or type(delimiter) ~= 'string' then
-        delimiter = ' '
-    end
-
-    if #list == 0 then
-        return ""
-    end
-
-
-    local s = list[1]
-
-    for i = 2, #list do
-        s = s .. delimiter .. list[i]
-    end
-
-    return s
-end
 
 function _M.allow_host(host)
     allow_hosts[#allow_hosts + 1] = host
