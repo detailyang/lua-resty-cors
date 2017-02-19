@@ -25,6 +25,7 @@ local allow_methods = {}
 local expose_headers = {}
 local max_age = 3600
 local allow_credentials = true
+local join = table.concat
 
 local function join(delimiter, list)
     if delimiter == nil or type(delimiter) ~= 'string' then
@@ -93,15 +94,15 @@ function _M.run()
     ngx.header[AccessControlMaxAge] = max_age
 
     if #expose_headers >= 0 then
-        ngx.header[AccessControlExposeHeaders] = join(',', expose_headers)
+        ngx.header[AccessControlExposeHeaders] = join(expose_headers, ',')
     end
 
     if #allow_headers >= 0 then
-        ngx.header[AccessControlAllowHeaders] = join(',', allow_headers)
+        ngx.header[AccessControlAllowHeaders] = join(allow_headers, ',')
     end
 
     if #allow_methods >= 0 then
-        ngx.header[AccessControlAllowMethods] = join(',', allow_methods)
+        ngx.header[AccessControlAllowMethods] = join(allow_methods, ',')
     end
 
     if allow_credentials == true then
