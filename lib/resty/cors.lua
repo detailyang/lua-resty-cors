@@ -32,8 +32,12 @@ function _M.allow_host(host)
     allow_hosts[#allow_hosts + 1] = host
 end
 
+
 function _M.allow_method(method)
-    allow_methods[#allow_methods + 1] = method
+    if inArray(allow_methods,method) then
+        ngx.log(ngx.DEBUG, "Method ["..method.."] allready present in allowlist." )
+    else
+        allow_methods[#allow_methods + 1] = method
 end
 
 function _M.allow_header(header)
