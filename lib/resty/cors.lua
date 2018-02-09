@@ -7,7 +7,7 @@
 
 local re_match = ngx.re.match
 
-local _M = { _VERSION = '0.2.1.2'}
+local _M = { _VERSION = '0.2.1.3'}
 
 local Origin = 'Origin'
 local AccessControlAllowOrigin = 'Access-Control-Allow-Origin'
@@ -50,7 +50,11 @@ function _M.allow_method(method)
 end
 
 function _M.allow_header(header)
-    allow_headers[#allow_headers + 1] = header
+    if inArray(allow_headers,header) then
+        ngx.log(ngx.DEBUG, "Allowed Header ["..header.."] allready present in allowlist." )
+    else
+        allow_headers[#allow_headers + 1] = header
+   end
 end
 
 function _M.expose_header(header)
