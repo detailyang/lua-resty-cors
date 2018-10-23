@@ -28,7 +28,7 @@ It shoule be placed on the nginx output header phase. In OpenResty it should be 
 ```bash
 
 http {
-      header_filter_by_lua_block {
+      init_by_lua_block {
         local cors = require('lib.resty.cors');
 
         cors.allow_host([==[.*\.google\.com]==])
@@ -43,7 +43,10 @@ http {
         cors.allow_header('x-custom-field2')
         cors.max_age(7200)
         cors.allow_credentials(false)
-        
+      }
+      
+      header_filter_by_lua_block {
+        local cors = require('lib.resty.cors');
         cors.run()
     }
 }
