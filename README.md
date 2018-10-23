@@ -23,7 +23,7 @@ Status
 
 Usage
 ====
-It shoule be placed on the nginx output header phase. In OpenResty it should be header_filter_by_lua\*. The config shoule be like as the following:
+It shoule be placed on the nginx init phase and run at header phase as the following:
 
 ```bash
 
