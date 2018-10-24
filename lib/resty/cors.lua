@@ -29,36 +29,31 @@ local join = table.concat
 
 
 function _M.allow_host(host)
-    allow_hosts[#allow_hosts + 1] = host
+    if allow_hosts[host] == nil then
+        allow_hosts[host] = hosts
+        allow_hosts[#allow_hosts + 1] = host
+    end
 end
 
-local function inArray(tab, val)
-    for index, value in ipairs(tab) do
-        if value == val then
-            return true
-        end
-    end
-    return false
- end 
-
 function _M.allow_method(method)
-    if inArray(allow_methods,method) then
-        ngx.log(ngx.DEBUG, "Method ["..method.."] allready present in allowlist." )
-    else
+    if allow_methods[method] == nil then
+        allow_methods[method] = method
         allow_methods[#allow_methods + 1] = method
-   end
+    end
 end
 
 function _M.allow_header(header)
-    if inArray(allow_headers,header) then
-        ngx.log(ngx.DEBUG, "Allowed Header ["..header.."] allready present in allowlist." )
-    else
+    if allow_headers[header] == nil then
+        allow_headers[header] = header
         allow_headers[#allow_headers + 1] = header
-   end
+    end
 end
 
 function _M.expose_header(header)
-    expose_headers[#expose_headers + 1] = header
+    if expose_headers[header] == nil then
+        expose_headers[header] = header
+        expose_headers[#expose_headers + 1] = header
+    end
 end
 
 function _M.max_age(age)

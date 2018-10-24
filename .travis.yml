@@ -1,7 +1,7 @@
 sudo: true
 language: c
 before_install:
-  - sudo apt-get install -y libev-dev build-essential cpanminus perlmagick
+  - sudo apt-get install -y libev-dev build-essential cpanminus perlmagick libcpanplus-perl
   - wget https://github.com/lighttpd/weighttp/archive/weighttp-0.4.tar.gz
   - tar -zxf weighttp-0.4.tar.gz
   - (cd weighttp-weighttp-0.4 && ./autogen.sh && ./configure && make && sudo make install)
