@@ -29,19 +29,19 @@ local join = table.concat
 
 
 function _M.allow_host(host)
-    allow_hosts[host] = host
+    allow_hosts[#allow_hosts + 1] = host
 end
 
 function _M.allow_method(method)
-    allow_methods[method] = method
+    allow_methods[#allow_methods + 1] = method
 end
 
 function _M.allow_header(header)
-    allow_headers[header] = header
+    allow_headers[#allow_headers + 1] = header
 end
 
 function _M.expose_header(header)
-    expose_headers[header] = header
+    expose_headers[#expose_headers + 1] = header
 end
 
 function _M.max_age(age)
