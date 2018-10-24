@@ -7,7 +7,7 @@
 
 local re_match = ngx.re.match
 
-local _M = { _VERSION = '0.2.1.4'}
+local _M = { _VERSION = '0.2.1.3'}
 
 local Origin = 'Origin'
 local AccessControlAllowOrigin = 'Access-Control-Allow-Origin'
