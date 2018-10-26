@@ -7,7 +7,7 @@
 
 local re_match = ngx.re.match
 
-local _M = { _VERSION = '0.2.1.4'}
+local _M = { _VERSION = '0.2.1.5'}
 
 local Origin = 'Origin'
 local AccessControlAllowOrigin = 'Access-Control-Allow-Origin'
@@ -30,7 +30,7 @@ local join = table.concat
 
 function _M.allow_host(host)
     if allow_hosts[host] == nil then
-        allow_hosts[host] = hosts
+        allow_hosts[host] = host
         allow_hosts[#allow_hosts + 1] = host
     end
 end
@@ -75,6 +75,7 @@ function _M.run()
         local from, to, err = ngx.re.find(origin, v, "jo")
         if from then
             matched = true
+            break
         end
     end
 
