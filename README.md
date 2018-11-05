@@ -23,7 +23,7 @@ Status
 
 Usage
 ====
-It shoule be placed on the nginx init phase and run at header phase as the following:
+It may be placed on the nginx http block for a global CORS config or in each server block to configure a different CORS for each virtual host as the following:
 
 ```bash
 
